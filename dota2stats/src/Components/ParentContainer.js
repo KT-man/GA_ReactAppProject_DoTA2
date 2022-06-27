@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import SearchBar from "./SearchBar";
+import allMatches from "../JSONfiles/allMatches";
+import recentMatches from "../JSONfiles/recentMatches";
+import userSummary from "../JSONfiles/userSummary";
+import SummaryStats from "./SummaryStats";
 
 const ParentContainer = () => {
+  //To relook at the useStates. Some of them (such as search) might be better stored as useRefs to prevent excessive rerendering
   const [search, setSearch] = useState("");
+  const [didSearch, setDidSearch] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const [recentStats, setRecentStats] = useState([]);
   const [summaryStats, setSummaryStats] = useState([]);
-  const [userSummary, setUserSummary] = useState({});
+  const [userSummaryStats, setUserSummaryStats] = useState({});
 
   //-------------------------- Function to handle search input ---------------//
   const handleSearch = (event) => {
@@ -26,47 +34,70 @@ const ParentContainer = () => {
     //matches searches for ALL matches, unless limited
     //recentMatches for most recent 20 games
 
-    let summaryStatsUrl =
-      "https://api.opendota.com/api/players/86942246/matches";
+    //     let summaryStatsUrl =
+    //       "https://api.opendota.com/api/players/86942246/matches";
 
-    let recentStatsUrl =
-      "https://api.opendota.com/api/players/86942246/recentMatches";
+    //     let recentStatsUrl =
+    //       "https://api.opendota.com/api/players/86942246/recentMatches";
 
-    let userSummaryStatsUrl = "https://api.opendota.com/api/players/86942246";
+    //     let userSummaryStatsUrl = "https://api.opendota.com/api/players/86942246";
 
-    function makeGetRequest(url) {
-      axios.get(url).then(
-        (response) => {
-          switch (url) {
-            case summaryStatsUrl:
-              return setSummaryStats(response.data);
-            case recentStatsUrl:
-              return setRecentStats(response.data);
-            case userSummaryStatsUrl:
-              return setUserSummary(response.data);
-            default:
-              return url;
-          }
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    }
+    //     function makeGetRequest(url) {
+    //       axios.get(url).then(
+    //         (response) => {
+    //           switch (url) {
+    //             case summaryStatsUrl:
+    //               return setSummaryStats(response.data);
+    //             case recentStatsUrl:
+    //               return setRecentStats(response.data);
+    //             case userSummaryStatsUrl:
+    //               return setUserSummary(response.data);
+    //             default:
+    //               return url;
+    //           }
+    //         },
+    //         (error) => {
+    //           console.log(error);
+    //         }
+    //       );
+    //     }
 
-    //-------------------Calling makeGetRequest to get required data from OpenDotaAPI
-    makeGetRequest(summaryStatsUrl);
-    makeGetRequest(recentStatsUrl);
-    makeGetRequest(userSummaryStatsUrl);
+    //     //-------------------Wrapping multiple makeGetRequests to get required data from OpenDotaAPI
+    // function getDotaStats = () => {
+    //     setIsLoading(true)
+    //     makeGetRequest(summaryStatsUrl)
+    //     makeGetRequest(recentStatsUrl)
+    //     makeGetRequest(userSummaryStatsUrl)
+    //     setIsLoading(false)
+    // }
+
+    // ------------------------------
+    // ------------------------------Replacing with static data first
+    // ------------------------------
+    // ------------------------------
+    setRecentStats(recentMatches);
+    setSummaryStats(allMatches);
+    setUserSummaryStats(userSummary);
+
+    setDidSearch(true);
   };
 
   return (
-    <div>
-      <SearchBar
-        search={search}
-        handleSearch={handleSearch}
-        handleSubmit={handleSubmit}
-      ></SearchBar>
+    <div className="container">
+      {!didSearch && (
+        <SearchBar
+          search={search}
+          handleSearch={handleSearch}
+          handleSubmit={handleSubmit}
+        ></SearchBar>
+      )}
+      {didSearch && (
+        <SummaryStats
+          userSummary={userSummary}
+          recentMatches={recentMatches}
+          summaryStats={allMatches}
+        ></SummaryStats>
+      )}
     </div>
   );
 };
