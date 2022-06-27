@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import SearchBar from "./SearchBar";
+
+//Temp Static Files
 import allMatches from "../JSONfiles/allMatches";
 import recentMatches from "../JSONfiles/recentMatches";
 import userSummary from "../JSONfiles/userSummary";
+import peers from "../JSONfiles/peers";
+import userHeroes from "../JSONfiles/userHeroes";
+//------------------
+
 import SummaryStats from "./SummaryStats";
 
 const ParentContainer = () => {
@@ -15,6 +21,8 @@ const ParentContainer = () => {
   const [recentStats, setRecentStats] = useState([]);
   const [summaryStats, setSummaryStats] = useState([]);
   const [userSummaryStats, setUserSummaryStats] = useState({});
+  const [userPeers, setUserPeers] = useState([]);
+  const [userHeroStats, setUserHeroStats] = useState([]);
 
   //-------------------------- Function to handle search input ---------------//
   const handleSearch = (event) => {
@@ -42,6 +50,10 @@ const ParentContainer = () => {
 
     //     let userSummaryStatsUrl = "https://api.opendota.com/api/players/86942246";
 
+    //     let userPeersUrl = "https://api.opendota.com/api/players/86942246/peers"
+
+    //     let userHeroesUrl = "https://api.opendota.com/api/players/86942246/heroes"
+
     //     function makeGetRequest(url) {
     //       axios.get(url).then(
     //         (response) => {
@@ -52,6 +64,10 @@ const ParentContainer = () => {
     //               return setRecentStats(response.data);
     //             case userSummaryStatsUrl:
     //               return setUserSummary(response.data);
+    //             case userPeersUrl
+    //               return setUserPeers(response.data);
+    //             case userHeroesUrl
+    //               return setUserHeroStats(response.data);
     //             default:
     //               return url;
     //           }
@@ -68,6 +84,8 @@ const ParentContainer = () => {
     //     makeGetRequest(summaryStatsUrl)
     //     makeGetRequest(recentStatsUrl)
     //     makeGetRequest(userSummaryStatsUrl)
+    //     makeGetRequest(userPeers)
+    //     makeGetRequest(userHeroStats)
     //     setIsLoading(false)
     // }
 
@@ -78,6 +96,8 @@ const ParentContainer = () => {
     setRecentStats(recentMatches);
     setSummaryStats(allMatches);
     setUserSummaryStats(userSummary);
+    setUserPeers(peers);
+    setUserHeroStats(userHeroes);
 
     setDidSearch(true);
   };
@@ -93,9 +113,11 @@ const ParentContainer = () => {
       )}
       {didSearch && (
         <SummaryStats
-          userSummary={userSummary}
-          recentMatches={recentMatches}
-          summaryStats={allMatches}
+          userSummary={userSummaryStats}
+          recentMatches={recentStats}
+          summaryStats={summaryStats}
+          userPeers={userPeers}
+          userHeroStats={userHeroStats}
         ></SummaryStats>
       )}
     </div>

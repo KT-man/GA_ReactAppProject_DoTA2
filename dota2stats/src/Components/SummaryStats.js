@@ -16,6 +16,8 @@ const SummaryStats = (props) => {
         <DotaModal
           toSetShowModal={toSetShowModal}
           summaryStats={props.summaryStats}
+          userPeers={props.userPeers}
+          userHeroStats={props.userHeroStats}
         ></DotaModal>
       )}
       <SearchBar></SearchBar>
