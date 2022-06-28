@@ -103,7 +103,7 @@ const DotaModal = (props) => {
           toSetShowModal={props.toSetShowModal}
           matchesPlayed={matchesPlayed}
           userFirstGameDate={userFirstGameDate}
-          topLosersList={topLosersList}
+          listOfTopLosers={listOfTopLosers}
           pageState={pageState}
           setNextPage={setNextPage}
           setPreviousPage={setPreviousPage}

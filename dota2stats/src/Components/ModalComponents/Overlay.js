@@ -5,78 +5,55 @@ import PreviousButton from "./PreviousButton";
 import styles from "./DotaModal.module.css";
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
+import PageThree from "./PageThree";
+import PageFour from "./PageFour";
+import PageFive from "./PageFive";
 
 const Overlay = (props) => {
   return (
     <>
       <div className={styles.backdrop}>
         <div className={`${styles.board} ${styles.modal}`}>
-          <h2>Hello</h2>
-          {props.pageState === 0 && <PageOne></PageOne>}
-          {props.pageState === 1 && <PageTwo></PageTwo>}
-        </div>
-        <footer className={styles.actions}>
-          {props.pageState > 0 && (
-            <PreviousButton
-              setPreviousPage={props.setPreviousPage}
-            ></PreviousButton>
-          )}
-          <NextButton setNextPage={props.setNextPage}></NextButton>
-          <button className="btn" onClick={props.toSetShowModal}>
-            Okay
-          </button>
-        </footer>
-      </div>
-
-      {/* <div className={styles.backdrop}>
-        <div className={`${styles.board} ${styles.modal}`}>
-          <header className={styles.header}>
+          {/* <header className={styles.header}>
             <h2>Your Personalized Dota2 Stats</h2>
-          </header>
+          </header> */}
           <div className={styles.content}>
-            <p>First Game: {props.userFirstGameDate}</p>
-            <br></br>
-            <p>Wins: {props.matchesPlayed.win}</p>
-            <br></br>
-            <p>Losses: {props.matchesPlayed.loss}</p>
-            <br></br>
-            <p>
-              Win/Loss ratio =
-              {(props.matchesPlayed.win / props.matchesPlayed.loss).toPrecision(
-                3
-              )}
-            </p>
-            <br></br>
-            <p>Total Time Losing: {props.matchesPlayed.userTotalLossTime}</p>
-            <br></br>
-            <div>
-              "Friends" that you have lost the most with:
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th>"Friend"</th>
-                    <th>Games Lost</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr></tr>
-                </tbody>
-              </table>
-            </div>
+            {/* //------------------------Conditional rendering to match pageState to decide which Page component to render */}
+
+            {props.pageState === 0 && (
+              <PageOne userFirstGameDate={props.userFirstGameDate}></PageOne>
+            )}
+            {props.pageState === 1 && (
+              <PageTwo matchesPlayed={props.matchesPlayed}></PageTwo>
+            )}
+            {props.pageState === 2 && (
+              <PageThree matchesPlayed={props.matchesPlayed}></PageThree>
+            )}
+            {props.pageState === 3 && (
+              <PageFour listOfTopLosers={props.listOfTopLosers}></PageFour>
+            )}
+            {props.pageState === 4 && <PageFive></PageFive>}
+            {/* //------------------------Conditional rendering to match pageState to decide which Page component to render */}
           </div>
+
           <footer className={styles.actions}>
+            {/* //------------------------Conditional rendering to match to render NextPage and PreviousPage buttons accordingly */}
             {props.pageState > 0 && (
               <PreviousButton
                 setPreviousPage={props.setPreviousPage}
               ></PreviousButton>
             )}
-            <NextButton setNextPage={props.setNextPage}></NextButton>
-            <button className="btn" onClick={props.toSetShowModal}>
-              Okay
-            </button>
+            {props.pageState < 4 && (
+              <NextButton setNextPage={props.setNextPage}></NextButton>
+            )}
+            {props.pageState === 4 && (
+              <button className="btn" onClick={props.toSetShowModal}>
+                Okay
+              </button>
+            )}
           </footer>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
