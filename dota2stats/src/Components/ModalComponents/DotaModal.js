@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Overlay from "./Overlay";
 
+//Multi-page modal. Think of it as states. Starts off as 1. Next Page + 1, Previous Page -1.
+//Render pages accordingly based on page state
+
 const DotaModal = (props) => {
+  // ---------
+  const [pageState, setPageState] = useState(0);
+
+  const setNextPage = () => {
+    setPageState(pageState + 1);
+  };
+
+  const setPreviousPage = () => {
+    setPageState(pageState - 1);
+  };
+
   //----------Get user's first game played and store in userFirstGameDate
   const tempDate = new Date(
     props.summaryStats[props.summaryStats.length - 1].start_time * 1000
@@ -90,6 +104,9 @@ const DotaModal = (props) => {
           matchesPlayed={matchesPlayed}
           userFirstGameDate={userFirstGameDate}
           topLosersList={topLosersList}
+          pageState={pageState}
+          setNextPage={setNextPage}
+          setPreviousPage={setPreviousPage}
         />,
         document.querySelector("#modal-root")
       )}
