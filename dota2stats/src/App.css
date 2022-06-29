@@ -12,21 +12,8 @@
   color: #61dafb;
 }
 
-#particles-js {
-  position: absolute;
-
-  min-height: 100%;
-  height: auto;
-  z-index: -1;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  color: #f2f2e6;
 }
 
 th:first-of-type {
@@ -46,4 +33,13 @@ tr:last-of-type td:last-of-type {
 table tr td,
 table tr th {
   background-color: rgba(191, 41, 27, 0.751) !important;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

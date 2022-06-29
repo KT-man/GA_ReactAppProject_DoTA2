@@ -16,11 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <Particles
-        options={particlesOptions}
-        init={particlesInit}
-        id="particles-js"
-      ></Particles>
+      <Particles options={particlesOptions} init={particlesInit}></Particles>
       <h1>Dont - TA2</h1>
       <ParentContainer></ParentContainer>
     </div>

@@ -11,10 +11,13 @@ const PageTwo = (props) => {
       </p>
       <p>Let's have a closer look at your losses...</p>
       <p>
-        By our calculations, your Win/Loss ratio is hovering near{" "}
-        {(props.matchesPlayed.win / props.matchesPlayed.loss).toPrecision(4)},
-        [PLACEHOLDER] so I guess you can proudly tell your family and friends
-        you didn't entirely "waste your time", Picasso.
+        By our calculations, your Win Percentage is hovering near{" "}
+        {(
+          (props.matchesPlayed.win / props.matchesPlayed.total) *
+          100
+        ).toPrecision(4)}
+        % , [PLACEHOLDER] so I guess you can proudly tell your family and
+        friends you didn't entirely "waste your time", Picasso.
       </p>
     </>
   );

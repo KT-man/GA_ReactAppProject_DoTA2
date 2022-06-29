@@ -1,6 +1,7 @@
 import React from "react";
 
 const ChildUserProfile = (props) => {
+  console.log(props);
   return (
     <>
       <table className="table table-sm table-borderless">

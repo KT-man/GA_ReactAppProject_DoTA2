@@ -9,11 +9,13 @@ const DotaModal = (props) => {
   // ---------
   const [pageState, setPageState] = useState(0);
 
-  const setNextPage = () => {
+  const setNextPage = (event) => {
+    event.preventDefault();
     setPageState(pageState + 1);
   };
 
-  const setPreviousPage = () => {
+  const setPreviousPage = (event) => {
+    event.preventDefault();
     setPageState(pageState - 1);
   };
 
@@ -60,6 +62,8 @@ const DotaModal = (props) => {
         } else {
           return (matchesPlayed.win += 1);
         }
+      default:
+        return match.player_slot;
     }
   });
 

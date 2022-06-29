@@ -6,16 +6,15 @@ const PageFour = (props) => {
     <>
       <div>
         <p>
-          I guess you can be proud that you have "friends" who like losing as
-          much as you
+          I guess you can be proud that you have "friends" who suffered losing
+          with you for this long
         </p>
-        <br></br>
-        <p>HALL OIF FA-(il)-ME</p>
-        <table className="table">
+
+        <table className="table table-borderless">
           <thead>
             <tr>
               <th>"Friend"</th>
-              <th>Games Lost</th>
+              <th>Games Lost Together</th>
             </tr>
           </thead>
           <tbody>

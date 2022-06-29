@@ -1,25 +1,27 @@
 import React from "react";
+//---------- Button Components
 import NextButton from "./NextButton";
 import PreviousButton from "./PreviousButton";
-
-import styles from "./DotaModal.module.css";
+//---------- Page Components
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 import PageThree from "./PageThree";
 import PageFour from "./PageFour";
 import PageFive from "./PageFive";
+//---------- Adding particles to Modal
+
+import styles from "./Overlay.module.css";
 
 const Overlay = (props) => {
   return (
     <>
       <div className={styles.backdrop}>
         <div className={`${styles.board} ${styles.modal}`}>
-          {/* <header className={styles.header}>
-            <h2>Your Personalized Dota2 Stats</h2>
-          </header> */}
+          <header className={styles.header}>
+            <h2>Dota2 Wrapped</h2>
+          </header>
           <div className={styles.content}>
             {/* //------------------------Conditional rendering to match pageState to decide which Page component to render */}
-
             {props.pageState === 0 && (
               <PageOne userFirstGameDate={props.userFirstGameDate}></PageOne>
             )}
@@ -30,10 +32,13 @@ const Overlay = (props) => {
               <PageThree matchesPlayed={props.matchesPlayed}></PageThree>
             )}
             {props.pageState === 3 && (
-              <PageFour listOfTopLosers={props.listOfTopLosers}></PageFour>
+              <PageFour
+                listOfTopLosers={props.listOfTopLosers}
+                key={Math.random()}
+              ></PageFour>
             )}
             {props.pageState === 4 && <PageFive></PageFive>}
-            {/* //------------------------Conditional rendering to match pageState to decide which Page component to render */}
+            {/* //-----------END--------Conditional rendering to match pageState to decide which Page component to render */}
           </div>
 
           <footer className={styles.actions}>
@@ -47,7 +52,10 @@ const Overlay = (props) => {
               <NextButton setNextPage={props.setNextPage}></NextButton>
             )}
             {props.pageState === 4 && (
-              <button className="btn" onClick={props.toSetShowModal}>
+              <button
+                className={`${styles.btn} btn btn-danger`}
+                onClick={props.toSetShowModal}
+              >
                 Okay
               </button>
             )}

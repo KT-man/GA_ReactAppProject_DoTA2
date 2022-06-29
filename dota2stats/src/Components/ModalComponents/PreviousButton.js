@@ -1,9 +1,13 @@
 import React from "react";
+import styles from "./Overlay.module.css";
 
 const PreviousButton = (props) => {
   return (
     <>
-      <button className="btn btn-primary" onClick={props.setPreviousPage}>
+      <button
+        className={`${styles.btn} btn btn-danger`}
+        onMouseDown={props.setPreviousPage}
+      >
         Previous Page
       </button>
     </>

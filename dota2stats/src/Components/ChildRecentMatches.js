@@ -1,6 +1,7 @@
 import React from "react";
-import SearchBar from "./SearchBar";
+
 import ChildRecentMatchRow from "./ChildRecentMatchRow";
+import styles from "./ChildRecentMatches.module.css";
 
 const ChildRecentMatches = (props) => {
   return (
@@ -9,7 +10,7 @@ const ChildRecentMatches = (props) => {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Player Team</th>
+            <th scope="col">Match Date</th>
             <th scope="col">Player Hero</th>
             <th scope="col">Result</th>
             <th scope="col">Duration</th>
