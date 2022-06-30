@@ -10,19 +10,14 @@ const SearchBar = (props) => {
     onLoadFocus();
   }, [searchInput]);
 
-  const checkInput = (event) => {
-    if (searchInput.current.value.length === 0) {
-      alert("Please enter your Dota ID!");
-    }
-  };
-
   return (
     <div className="container" onSubmit={props.handleSubmit}>
       <form>
         <input
-          type="text"
+          className="col-md-6"
+          type="number"
           name="idquery"
-          placeholder="Enter Dota ID here"
+          placeholder="Enter Dota/SteamCommunity ID"
           value={props.search}
           ref={searchInput}
           onChange={props.handleSearch}

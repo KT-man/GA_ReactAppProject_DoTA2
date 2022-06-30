@@ -52,7 +52,6 @@ const ParentContainer = () => {
         (response) => {
           switch (url) {
             case summaryStatsUrl:
-              console.log(url);
               return setSummaryStats(response.data);
             case recentStatsUrl:
               return setRecentStats(response.data);
@@ -67,7 +66,9 @@ const ParentContainer = () => {
           }
         },
         (error) => {
-          console.log(error);
+          alert(
+            "You might have entered an incorrect Steam Community / Dota ID, please try again!"
+          );
         }
       );
     }
@@ -84,8 +85,9 @@ const ParentContainer = () => {
     }
 
     //-------------------Calling required functions to get data on submitting form
-    if (search.length === 17) {
-      console.log("hello");
+    if (search.length < 7) {
+      alert("Please ensure you have input a valid Dota/Steam Community ID!");
+      setSearch("");
     } else {
       getDotaStats();
       setSearch("");
@@ -105,19 +107,21 @@ const ParentContainer = () => {
   useEffect(() => {
     if (search.length === 17) {
       idConverter(search);
+    } else if (search < 0) {
+      alert("Please double check your community ID!");
+      setSearch("");
     }
   }, [search]);
 
   return (
     <div className="container">
-      {!didSearch && (
-        <SearchBar
-          search={search}
-          handleSearch={handleSearch}
-          handleSubmit={handleSubmit}
-        ></SearchBar>
-      )}
-      {didSearch && summaryStats.length !== 0 && (
+      <SearchBar
+        search={search}
+        handleSearch={handleSearch}
+        handleSubmit={handleSubmit}
+      ></SearchBar>
+
+      {didSearch && summaryStats.length !== 0 && userHeroStats.length !== 0 && (
         <SummaryStats
           userSummary={userSummaryStats}
           recentMatches={recentStats}

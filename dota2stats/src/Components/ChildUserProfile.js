@@ -1,14 +1,17 @@
 import React from "react";
 
 const ChildUserProfile = (props) => {
-  console.log(props);
+  let firstGameTime = props.firstGame.start_time;
+  firstGameTime = new Date(firstGameTime * 1000).toLocaleString("en-GB", {
+    dateStyle: "medium",
+  });
   return (
     <>
       <table className="table table-sm table-borderless">
         <thead>
           <tr>
             <th>Username</th>
-            <th>Last User Login</th>
+            <th>Player Since:</th>
             <th>Estimated MMR</th>
           </tr>
         </thead>
@@ -24,7 +27,7 @@ const ChildUserProfile = (props) => {
                 {props.userSummary.profile.personaname}
               </p>
             </td>
-            <td>{props.userSummary.profile.last_login.split("T")[0]}</td>
+            <td>{firstGameTime}</td>
             <td>{props.userSummary.competitive_rank}</td>
           </tr>
         </tbody>

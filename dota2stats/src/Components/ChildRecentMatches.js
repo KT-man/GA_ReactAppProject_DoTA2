@@ -23,6 +23,7 @@ const ChildRecentMatches = (props) => {
               <ChildRecentMatchRow
                 data={match}
                 index={index}
+                match_id={match.match_id}
                 key={match.match_id}
               ></ChildRecentMatchRow>
             );

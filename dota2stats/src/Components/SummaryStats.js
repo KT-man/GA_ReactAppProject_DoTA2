@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ChildUserProfile from "./ChildUserProfile";
 import ChildRecentMatches from "./ChildRecentMatches";
 import DotaModal from "./ModalComponents/DotaModal";
-import SearchBar from "./SearchBar";
 
 const SummaryStats = (props) => {
   const [showModal, setShowModal] = useState(false);
@@ -20,14 +19,17 @@ const SummaryStats = (props) => {
           userHeroStats={props.userHeroStats}
         ></DotaModal>
       )}
-      <SearchBar
+      {/* <SearchBar
         search={props.search}
         handleSubmit={props.handleSubmit}
         handleSearch={props.handleSearch}
-      ></SearchBar>
+      ></SearchBar> */}
       <br></br>
-      <ChildUserProfile userSummary={props.userSummary} />
-      <br></br>
+      <ChildUserProfile
+        userSummary={props.userSummary}
+        firstGame={props.summaryStats[props.summaryStats.length - 1]}
+      />
+
       <ChildRecentMatches
         recentMatches={props.recentMatches}
       ></ChildRecentMatches>

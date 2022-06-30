@@ -1,3 +1,9 @@
+span {
+  font-size: 2em;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+}
+
 .backdrop {
   position: fixed;
   top: 0;

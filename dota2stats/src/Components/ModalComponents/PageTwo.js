@@ -4,20 +4,28 @@ const PageTwo = (props) => {
   console.log(props);
   return (
     <>
+      <p>Over the years, you've racked up </p>
       <p>
-        Over the years, you've racked up {props.matchesPlayed.win} wins and{" "}
-        {props.matchesPlayed.loss} losses over your {props.matchesPlayed.total}{" "}
-        matches played. That's an awful lot of losses don't you think?
+        <span>
+          {props.matchesPlayed.win} wins {props.matchesPlayed.loss} losses
+        </span>
       </p>
-      <p>Let's have a closer look at your losses...</p>
-      <p>
-        By our calculations, your Win Percentage is hovering near{" "}
+
+      <p>That's an awful lot of losses don't you think?</p>
+      <br></br>
+      <br></br>
+      <p>Your Win Percentage is:</p>
+      <span>
         {(
           (props.matchesPlayed.win / props.matchesPlayed.total) *
           100
         ).toPrecision(4)}
-        % , [PLACEHOLDER] so I guess you can proudly tell your family and
-        friends you didn't entirely "waste your time", Picasso.
+        %{" "}
+      </span>
+
+      <p>
+        [PLACEHOLDER] so I guess you can proudly tell your family and friends
+        you didn't entirely "waste your time", Picasso.
       </p>
     </>
   );

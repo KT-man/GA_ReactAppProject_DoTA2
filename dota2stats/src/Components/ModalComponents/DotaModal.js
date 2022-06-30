@@ -24,7 +24,6 @@ const DotaModal = (props) => {
     props.summaryStats[props.summaryStats.length - 1].start_time * 1000
   );
 
-  const userFirstGameDate = tempDate.toISOString().split("T")[0];
   //----------------------------------------------------------------------------------------------
 
   //----------Get user's Win/Loss profile and store in matchesPlayed
@@ -106,7 +105,7 @@ const DotaModal = (props) => {
         <Overlay
           toSetShowModal={props.toSetShowModal}
           matchesPlayed={matchesPlayed}
-          userFirstGameDate={userFirstGameDate}
+          tempDate={tempDate}
           listOfTopLosers={listOfTopLosers}
           pageState={pageState}
           setNextPage={setNextPage}

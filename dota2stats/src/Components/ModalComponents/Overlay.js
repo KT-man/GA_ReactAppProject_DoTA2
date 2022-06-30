@@ -7,8 +7,6 @@ import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 import PageThree from "./PageThree";
 import PageFour from "./PageFour";
-import PageFive from "./PageFive";
-//---------- Adding particles to Modal
 
 import styles from "./Overlay.module.css";
 
@@ -23,13 +21,16 @@ const Overlay = (props) => {
           <div className={styles.content}>
             {/* //------------------------Conditional rendering to match pageState to decide which Page component to render */}
             {props.pageState === 0 && (
-              <PageOne userFirstGameDate={props.userFirstGameDate}></PageOne>
+              <PageOne tempDate={props.tempDate}></PageOne>
             )}
             {props.pageState === 1 && (
               <PageTwo matchesPlayed={props.matchesPlayed}></PageTwo>
             )}
             {props.pageState === 2 && (
-              <PageThree matchesPlayed={props.matchesPlayed}></PageThree>
+              <PageThree
+                matchesPlayed={props.matchesPlayed}
+                pageState={props.pageState}
+              ></PageThree>
             )}
             {props.pageState === 3 && (
               <PageFour
@@ -37,7 +38,7 @@ const Overlay = (props) => {
                 key={Math.random()}
               ></PageFour>
             )}
-            {props.pageState === 4 && <PageFive></PageFive>}
+
             {/* //-----------END--------Conditional rendering to match pageState to decide which Page component to render */}
           </div>
 
@@ -48,15 +49,15 @@ const Overlay = (props) => {
                 setPreviousPage={props.setPreviousPage}
               ></PreviousButton>
             )}
-            {props.pageState < 4 && (
+            {props.pageState < 3 && (
               <NextButton setNextPage={props.setNextPage}></NextButton>
             )}
-            {props.pageState === 4 && (
+            {props.pageState === 3 && (
               <button
                 className={`${styles.btn} btn btn-danger`}
                 onClick={props.toSetShowModal}
               >
-                Okay
+                Quit (dota)
               </button>
             )}
           </footer>

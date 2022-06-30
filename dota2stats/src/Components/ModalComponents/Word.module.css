@@ -1,0 +1,7 @@
+.word {
+  margin: auto;
+  color: white;
+  font-size: 2em;
+  background-color: #454545;
+  font-family: "Courier New", "Lucida Console", monospace;
+}
