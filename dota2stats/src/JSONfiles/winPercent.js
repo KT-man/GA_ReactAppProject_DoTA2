@@ -5,9 +5,11 @@ const winPercent = {
     "It's like you're the 6th player, for the opponent team.",
   ],
   from50to55: [
-    "Congratulations. You are average.",
+    "Wonderful. You are wonderfully average.",
     "You really are consistent. Consistently average.",
     "I'm sure you're blaming the matchmaking system for your lousy rank.",
+    "It's alright, you can tell yourself that this is what everyone gets!",
+    "I've read your performance report. It says you are a terribly average player.",
   ],
   above55: [
     "Wow I'm impressed. How much did you buy your account for?",
