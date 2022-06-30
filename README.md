@@ -31,3 +31,8 @@ big-integer -- https://www.npmjs.com/package/big-integer -- to handle integers o
 | Recent Matches (Table) |  Dota Modal     | ----  |
 | Individual Recent Matches (row)  | Pages in the Modal      |    ----  |
 
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
+
