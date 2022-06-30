@@ -11,7 +11,7 @@ A frontend web application development project made using React to gain a better
 - Individual match information - K/D/A of each player, heroes played, abilities and items used
 - Even more specific match information can be requested by parsing the matches for further analysis
 
-Specific match information can be found on many Dota statistics websites, such as ==www.dotabuff.com or www.opendota.com==.
+Specific match information can be found on many Dota statistics websites, such as ==www.dotabuff.com== or ==www.opendota.com==.
 
 Hence, DON'T TA 2 takes a closer look and really magnifies some of the more important player statistics that might have slipped the notice of players wishing to improve themselves.
 
@@ -25,9 +25,9 @@ big-integer -- https://www.npmjs.com/package/big-integer -- to handle integers o
 ```
 
 ### Wireframes 
-|       | App| |
-|    | Parent Container    |         |
-|    |   Search Bar      |          |
-| Recent Matches (Table) |  Dota Modal     |   |
-| Individual Recent Matches (row)  | Pages in the Modal      |      |
+|  ----     | App| -------|
+| -----   | Parent Container    |   ----      |
+|  ----  |   Search Bar      |    ----      |
+| Recent Matches (Table) |  Dota Modal     | ----  |
+| Individual Recent Matches (row)  | Pages in the Modal      |    ----  |
 
