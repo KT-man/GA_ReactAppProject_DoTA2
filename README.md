@@ -42,6 +42,7 @@ Users will also be able to view more detailed stats by viewing the modal that po
 ```
 
 ### Unsolved problems
+- BETTER APP NAME. 
 - Error loading Page 4 of Modal when searching for userPeers if player plays exclusively solo matchmaking, or if not enough friends. Probably to render a different screen if error 
 - API still returns a success code of 200 even if there is no data returned. Empty arrays and objects are returned with success code 200, resulting in empty screen 
 
