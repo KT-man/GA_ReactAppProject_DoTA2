@@ -24,15 +24,11 @@ tsParticles -- https://www.npmjs.com/package/tsparticles -- for beautiful partic
 big-integer -- https://www.npmjs.com/package/big-integer -- to handle integers of unlimited size 
 ```
 
-### Wireframes 
-|  ----     | App| -------|
-| -----   | Parent Container    |   ----      |
-|  ----  |   Search Bar      |    ----      |
-| Recent Matches (Table) |  Dota Modal     | ----  |
-| Individual Recent Matches (row)  | Pages in the Modal      |    ----  |
+### Wireframe
 
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+|         | App |         |
+| ----------- | ----------- |------------|
+|    | Parent Container   |    |
+| Recent Matches (Table) |  Dota Modal     | ----  |
+| Individual Recent Matches (row)  | Pages in the Modal |    ----  |
 
