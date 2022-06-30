@@ -256,10 +256,10 @@
         "value": "#D0D0D0"
       },
       "consent": false,
-      "distance": 150,
+      "distance": 200,
       "enable": true,
       "frequency": 1,
-      "opacity": 0.4,
+      "opacity": 0.7,
       "shadow": {
         "blur": 5,
         "color": {
@@ -344,10 +344,10 @@
       "density": {
         "enable": true,
         "area": 1200,
-        "factor": 1000
+        "factor": 800
       },
       "limit": 0,
-      "value": 100
+      "value": 50
     },
     "opacity": {
       "random": {

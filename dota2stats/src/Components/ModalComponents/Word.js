@@ -63,6 +63,7 @@ const Word = (props) => {
       }
     }
     setWord(part);
+    console.log(part);
   }
 
   useEffect(() => {

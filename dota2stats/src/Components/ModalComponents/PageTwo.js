@@ -1,7 +1,11 @@
 import React from "react";
+import WinPercentStatement from "./WinPercentStatement";
 
 const PageTwo = (props) => {
-  console.log(props);
+  const winPercent = (
+    (props.matchesPlayed.win / props.matchesPlayed.total) *
+    100
+  ).toPrecision(4);
   return (
     <>
       <p>Over the years, you've racked up </p>
@@ -15,18 +19,9 @@ const PageTwo = (props) => {
       <br></br>
       <br></br>
       <p>Your Win Percentage is:</p>
-      <span>
-        {(
-          (props.matchesPlayed.win / props.matchesPlayed.total) *
-          100
-        ).toPrecision(4)}
-        %{" "}
-      </span>
+      <span>{winPercent}% </span>
 
-      <p>
-        [PLACEHOLDER] so I guess you can proudly tell your family and friends
-        you didn't entirely "waste your time", Picasso.
-      </p>
+      <WinPercentStatement winPercent={winPercent}></WinPercentStatement>
     </>
   );
 };

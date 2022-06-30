@@ -1,7 +1,6 @@
 import React from "react";
 
 const PageFour = (props) => {
-  console.log(props);
   return (
     <>
       <div>

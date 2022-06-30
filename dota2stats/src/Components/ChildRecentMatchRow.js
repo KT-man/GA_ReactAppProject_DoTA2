@@ -2,16 +2,19 @@ import React from "react";
 import heroes from "../JSONfiles/heroes";
 
 const ChildRecentMatchRow = (props) => {
+  //-------------- Repository of hero icons
   let iconUrl = `https://cdn.cloudflare.steamstatic.com/${
     heroes[props.data.hero_id].icon
   }`;
 
+  //-------------- Getting match date
   let matchDate = props.data.start_time;
   matchDate = new Date(matchDate * 1000).toLocaleString("en-GB", {
     dateStyle: "medium",
     timeStyle: "short",
   });
 
+  //-------------- Evaluating player team from player slot position
   let radiantOrDire = "";
   switch (props.data.player_slot) {
     case 0:
@@ -32,6 +35,7 @@ const ChildRecentMatchRow = (props) => {
       return props.data.player_slot;
   }
 
+  //---------------- Evaluating player win / loss based on radiant_win and player position
   let matchResult = "";
   switch (props.data.radiant_win) {
     case true:
@@ -54,7 +58,11 @@ const ChildRecentMatchRow = (props) => {
 
   return (
     <>
-      <tr>
+      <tr
+      // onClick={() =>
+      //   window.location.assign(`www.dotabuff.com/matches/${props.match_id}`)
+      // }
+      >
         <td>{props.index + 1}</td>
         <td>{matchDate}</td>
         <td>
