@@ -22,16 +22,17 @@ const Word = (props) => {
     forwards = true,
     skip_count = 0,
     skip_delay = 15,
-    speed = 80;
+    speed = 70,
+    intervalId;
 
   const [word, setWord] = useState(" ");
 
   function wordflick() {
-    setInterval(wordMovement, speed);
+    intervalId = setInterval(wordMovement, speed);
   }
 
   function stopWordflick() {
-    clearInterval(wordMovement);
+    clearInterval(intervalId);
   }
 
   function wordMovement() {

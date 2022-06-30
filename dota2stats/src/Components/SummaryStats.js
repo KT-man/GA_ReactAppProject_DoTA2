@@ -4,6 +4,7 @@ import ChildRecentMatches from "./ChildRecentMatches";
 import DotaModal from "./ModalComponents/DotaModal";
 
 const SummaryStats = (props) => {
+  console.log(props);
   const [showModal, setShowModal] = useState(false);
   const toSetShowModal = () => {
     setShowModal(!showModal);
