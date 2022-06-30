@@ -25,10 +25,25 @@ big-integer -- https://www.npmjs.com/package/big-integer -- to handle integers o
 ```
 
 ### Wireframe
+General flow of data is represented in the table below. 
+Search Bar within Parent Container will pass data down to its Children (Recent Matches & Modal) 
 
-|         | App |         |
+|          App         |
 | ----------- | ----------- |------------|
 |    | Parent Container   |    |
-| Recent Matches (Table) |  Dota Modal     | ----  |
-| Individual Recent Matches (row)  | Pages in the Modal |    ----  |
+| Recent Matches (Table) |  Dota Modal     | 
+| Individual Recent Matches (row)  | Pages in the Modal |  
 
+### User Story
+``` 
+With the Steam Community / Dota ID of the account that they wish to search for, users will be able to quickly glance through their query's summary dota stats, including recent games played, their brief account history, and estimated Matchmaking rating in the game.
+
+Users will also be able to view more detailed stats by viewing the modal that pops up upon clicking "Find out more", taking inspiration from roundup statistics such as the ones in Spotify Wrapped. 
+```
+
+### Unsolved problems
+- Error loading Page 4 of Modal when searching for userPeers if player plays exclusively solo matchmaking, or if not enough friends. Probably to render a different screen if error 
+- API still returns a success code of 200 even if there is no data returned. Empty arrays and objects are returned with success code 200, resulting in empty screen 
+
+### Acknowledgements 
+- https://alvarotrigo.com/blog/css-text-animations/ for really cool CSS effect 
