@@ -30,23 +30,6 @@ const ParentContainer = () => {
     setSearch(event.target.value);
   };
 
-  //-------------------------- Function to handle search input for Steam Community ID
-  // function idConverter(seventeenDigitID) {
-  //   if (seventeenDigitID.split("") === 17) {
-  //     const convertConstant = "76561197960265728";
-  //     let convertedID = bigInt(seventeenDigitID).minus(bigInt(convertConstant));
-  //     console.log("hello");
-  //     convertedID = Number(convertedID.value);
-
-  //     return convertedID;
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   idConverter(search);
-  //   console.log(search);
-  // }, [search]);
-
   //-------------------------- Function to handle submit button --------------//
   // On submit button, to make GET request to OpenDota API and request for data
   // Multiple search queries to be made, one to be made to get recent data, another for longer term data and to be stored in modal
@@ -100,19 +83,30 @@ const ParentContainer = () => {
       setDidSearch(true);
     }
 
-    getDotaStats();
-    setSearch("");
-
-    // ------------------------------
-    // ------------------------------Replacing with static data first
-    // ------------------------------
-    // ------------------------------
-    // setRecentStats(recentMatches);
-    // setSummaryStats(allMatches);
-    // setUserSummaryStats(userSummary);
-    // setUserPeers(peers);
-    // setUserHeroStats(userHeroes);
+    //-------------------Calling required functions to get data on submitting form
+    if (search.length === 17) {
+      console.log("hello");
+    } else {
+      getDotaStats();
+      setSearch("");
+    }
   };
+
+  //-------------------------- Function to handle search input for Steam Community ID
+  function idConverter(seventeenDigitID) {
+    const convertConstant = "76561197960265728";
+    let convertedID = bigInt(seventeenDigitID).minus(bigInt(convertConstant));
+    console.log("function run");
+    convertedID = Number(convertedID.value);
+
+    setSearch(convertedID);
+  }
+
+  useEffect(() => {
+    if (search.length === 17) {
+      idConverter(search);
+    }
+  }, [search]);
 
   return (
     <div className="container">
