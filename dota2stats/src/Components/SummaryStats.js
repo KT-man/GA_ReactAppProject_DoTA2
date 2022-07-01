@@ -20,11 +20,7 @@ const SummaryStats = (props) => {
           userHeroStats={props.userHeroStats}
         ></DotaModal>
       )}
-      {/* <SearchBar
-        search={props.search}
-        handleSubmit={props.handleSubmit}
-        handleSearch={props.handleSearch}
-      ></SearchBar> */}
+
       <br></br>
       <ChildUserProfile
         userSummary={props.userSummary}
