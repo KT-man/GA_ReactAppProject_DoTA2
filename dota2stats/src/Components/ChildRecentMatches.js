@@ -1,7 +1,6 @@
 import React from "react";
 
 import ChildRecentMatchRow from "./ChildRecentMatchRow";
-import styles from "./ChildRecentMatches.module.css";
 
 const ChildRecentMatches = (props) => {
   return (
