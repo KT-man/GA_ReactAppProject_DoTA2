@@ -30,9 +30,9 @@ Search Bar within Parent Container will pass data down to its Children (Recent M
 
 |     |     App       |  |
 | ----------- | ----------- |------------|
-|    | Parent Container   |    |
-| Recent Matches (Table) |  Dota Modal     | 
-| Individual Recent Matches (row)  | Pages in the Modal |  
+|    | Parent Container   |  NOT USED  |
+| Recent Matches (Table) |  Dota Modal     | NOT USED| 
+| Individual Recent Matches (row)  | Pages in the Modal |   NOT USED|
 
 ### User Story
 ``` 
