@@ -28,11 +28,11 @@ big-integer -- https://www.npmjs.com/package/big-integer -- to handle integers o
 General flow of data is represented in the table below. 
 Search Bar within Parent Container will pass data down to its Children (Recent Matches & Modal) 
 
-|          App         |
+|     |     App       |  |
 | ----------- | ----------- |------------|
-|    | Parent Container   |    |
-| Recent Matches (Table) |  Dota Modal     | 
-| Individual Recent Matches (row)  | Pages in the Modal |  
+|    | Parent Container   |  NOT USED  |
+| Recent Matches (Table) |  Dota Modal     | NOT USED| 
+| Individual Recent Matches (row)  | Pages in the Modal |   NOT USED|
 
 ### User Story
 ``` 
